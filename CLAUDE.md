@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Interactive React SPA for reviewing UX audit findings across 5 RV park websites that share a common WordPress template. **The vast majority of issues are template-level** — they appear on all sites. The report is structured template-first: findings default to "Template-wide" scope, with site-specific deviations called out only where they meaningfully differ.
 
-**Target sites:** River Oaks (riveroakspark.com), Trinity Alps (trinityalpsrvpark.com), Bearded Buffalo (beardedbuffaloresort.com), Joy RV (joyrv.org), Strawberry Park (strawberrypark.net). Strawberry Park is the benchmark — the most polished site, and often the "reference implementation" for how the template *should* work.
+**Target sites:** River Oaks (riveroakspark.com), Trinity Alps (trinityalpsrvpark.com), Bearded Buffalo (beardedbuffaloresort.com), Joy RV (joyrv.org), Strawberry Park (strawberrypark.net). Strawberry Park is the newest site and is generally more polished, but each site has areas where it handles things better than the others.
 
 ## Architecture & Technical Decisions
 
@@ -22,7 +22,7 @@ Interactive React SPA for reviewing UX audit findings across 5 RV park websites 
 
 - Findings default to **"Template-wide"** scope (affects all 5 sites)
 - Site-specific findings are the exception — only tagged when a finding genuinely applies to one or a few sites
-- Use **"All except [site]"** when one site handles something better (usually Strawberry Park)
+- Use **"All except [site]"** when one site handles something better than the others
 - Template-wide fixes are inherently higher leverage since fixing the template once improves all properties
 
 ## Key Views

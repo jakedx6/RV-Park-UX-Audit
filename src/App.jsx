@@ -205,22 +205,6 @@ const FINDINGS = [
   },
   // ID 13 removed — Logo loads fine on Joy RV, not an issue
   {
-    id: 14,
-    title: 'All amenity tile images broken — base64 lazy-load failure',
-    scope: 'Joy RV',
-    category: 'Technical/Performance',
-    description: 'All 4 amenity tile images on Joy RV are base64 SVG placeholders that fail to load (naturalWidth: 0). The amenity section shows only floating vertical text labels ("HIKING", "DRIVE-IN MOVIES", "WIFI", "LAUNDRY") with no images. The Drive-In Movie promotional flyer image loads correctly — only the amenity tiles are broken.',
-    userImpact: 3,
-    estimatedEffort: 2,
-    status: 'Confirmed',
-    link: 'https://joyrv.org',
-    evidence: [
-      { src: '/Images/validation/joyrv-JR2-broken-amenity-images.png', caption: 'All amenity images broken — only text labels visible' },
-    ],
-    referenceImplementation: null,
-    notes: 'Same lazy-loading issue as other sites but 100% failure rate on Joy RV amenity tiles. The promotional flyer image loads fine, suggesting the issue is specific to the amenity tile component.',
-  },
-  {
     id: 15,
     title: '"Coming soon" amenities not visually distinguished from existing',
     scope: 'Joy RV',
@@ -482,7 +466,7 @@ const FINDINGS = [
       { src: '/Images/validation/joyrv-booking-page-inline-widget.png', caption: 'Inline Newbook booking widget with social proof' },
     ],
     referenceImplementation: null,
-    notes: 'Positive finding. Significantly better than external Campspot redirects on other sites. Consider this a reference implementation for booking UX across the portfolio.',
+    notes: 'Positive finding. Significantly better than external Campspot redirects on other sites. Worth looking at as a model for booking UX across the portfolio.',
   },
   {
     id: 43,
@@ -609,6 +593,15 @@ const getPriorityScore = (f) => f.estimatedEffort === 0 ? 0 : (f.userImpact * f.
 const isQuickWin = (f) => getPriorityScore(f) >= 9
 const isTemplateWide = (f) => f.scope === 'Template-wide' || f.scope.startsWith('All except')
 
+function findingAffectsSite(finding, siteName) {
+  if (finding.scope === 'Template-wide') return true
+  if (finding.scope.startsWith('All except')) {
+    const excluded = finding.scope.replace('All except ', '')
+    return excluded !== siteName
+  }
+  return finding.scope === siteName
+}
+
 const SCOPE_COLORS = {
   'template-wide': 'bg-blue-100 text-blue-800',
   'all-except': 'bg-purple-100 text-purple-800',
@@ -696,11 +689,11 @@ function FindingRow({ finding, isExpanded, onToggle }) {
   return (
     <div className={`border-b border-gray-200 ${isTemplate ? 'border-l-4 border-l-blue-400' : ''} ${finding.positive ? 'border-l-4 border-l-green-400' : ''}`}>
       <div
-        className="flex items-center gap-4 px-4 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
+        className="flex items-start md:items-center gap-2 md:gap-4 px-3 md:px-4 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
         onClick={onToggle}
       >
         {/* Priority Score */}
-        <div className={`flex-shrink-0 w-16 text-center font-mono text-lg font-bold ${finding.positive ? 'text-green-500' : scoreColor}`}>
+        <div className={`flex-shrink-0 w-12 md:w-16 text-center font-mono text-base md:text-lg font-bold ${finding.positive ? 'text-green-500' : scoreColor}`}>
           {finding.positive ? '+' : score.toFixed(2)}
         </div>
 
@@ -717,7 +710,7 @@ function FindingRow({ finding, isExpanded, onToggle }) {
         </div>
 
         {/* Impact / Effort */}
-        <div className="flex-shrink-0 flex items-center gap-3 text-xs text-gray-500">
+        <div className="flex-shrink-0 hidden md:flex items-center gap-3 text-xs text-gray-500">
           <div className="text-center">
             <div className="font-semibold text-sm text-gray-700">{finding.userImpact}</div>
             <div>Impact</div>
@@ -739,14 +732,14 @@ function FindingRow({ finding, isExpanded, onToggle }) {
       {/* Expanded detail */}
       {isExpanded && (
         <div className="px-4 pb-4 pt-1 bg-gray-50 border-t border-gray-100">
-          <div className="ml-16 space-y-3">
+          <div className="ml-0 md:ml-16 space-y-3">
             {/* Positive finding indicator */}
             {finding.positive && (
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-100 text-green-800 text-sm font-medium">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Positive Finding — Reference Implementation
+                Positive Finding
               </div>
             )}
 
@@ -781,7 +774,7 @@ function FindingRow({ finding, isExpanded, onToggle }) {
             )}
             {finding.referenceImplementation && (
               <div>
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Reference Implementation</h4>
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Best Current Example</h4>
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
                   {finding.referenceImplementation}
                 </span>
@@ -799,13 +792,13 @@ function FindingRow({ finding, isExpanded, onToggle }) {
                       href={ev.src}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block max-w-xs"
+                      className="group block w-full sm:max-w-xs"
                     >
                       <div className="rounded-lg border border-gray-200 overflow-hidden bg-white group-hover:border-blue-300 transition-colors">
                         <img
                           src={ev.src}
                           alt={ev.caption}
-                          className="w-full h-48 object-cover object-top"
+                          className="w-full h-40 sm:h-48 object-cover object-top"
                           loading="lazy"
                         />
                       </div>
@@ -816,7 +809,7 @@ function FindingRow({ finding, isExpanded, onToggle }) {
               </div>
             )}
 
-            <div className="flex gap-6 text-xs text-gray-500 pt-2 border-t border-gray-200">
+            <div className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-1 text-xs text-gray-500 pt-2 border-t border-gray-200">
               <span>Priority Score: <strong className={`font-mono ${finding.positive ? 'text-green-500' : scoreColor}`}>{finding.positive ? 'N/A' : score.toFixed(2)}</strong></span>
               <span>Impact: <strong>{finding.userImpact}/5</strong></span>
               <span>Effort: <strong>{finding.estimatedEffort}/5</strong></span>
@@ -833,24 +826,39 @@ function FindingRow({ finding, isExpanded, onToggle }) {
 
 function FilterBar({ filters, setFilters, findingsCount, totalCount }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
-      <div className="flex flex-wrap items-center gap-3">
-        {/* Scope toggle */}
-        <div className="flex rounded-lg border border-gray-200 overflow-hidden text-sm">
-          {['all', 'template', 'site-specific'].map((scope) => (
+    <div className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 mb-4">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
+        {/* Active site filter chip */}
+        {filters.site && (
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-600 text-white">
+            {filters.site === 'Template' ? 'Template-wide' : filters.site}
             <button
-              key={scope}
-              onClick={() => setFilters((f) => ({ ...f, scope }))}
-              className={`px-3 py-1.5 font-medium transition-colors ${
-                filters.scope === scope
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-600 hover:bg-gray-50'
-              }`}
+              onClick={() => setFilters((f) => ({ ...f, site: null, scope: 'all' }))}
+              className="ml-1 hover:bg-blue-700 rounded-full p-0.5"
             >
-              {scope === 'all' ? 'All' : scope === 'template' ? 'Template-wide' : 'Site-specific'}
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-          ))}
-        </div>
+          </div>
+        )}
+
+        {/* Scope toggle (hidden when site filter is active) */}
+        {!filters.site && (
+          <div className="flex rounded-lg border border-gray-200 overflow-hidden text-sm">
+            {['all', 'template', 'site-specific'].map((scope) => (
+              <button
+                key={scope}
+                onClick={() => setFilters((f) => ({ ...f, scope }))}
+                className={`px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
+                  filters.scope === scope
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                {scope === 'all' ? 'All' : scope === 'template' ? 'Template-wide' : 'Site-specific'}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Category filter */}
         <select
@@ -890,7 +898,7 @@ function FilterBar({ filters, setFilters, findingsCount, totalCount }) {
         </button>
 
         {/* Count */}
-        <div className="ml-auto text-sm text-gray-500">
+        <div className="sm:ml-auto text-sm text-gray-500">
           Showing <strong>{findingsCount}</strong> of {totalCount} findings
         </div>
       </div>
@@ -924,7 +932,11 @@ function FindingsListView({ filters, setFilters, sortConfig, setSortConfig, onNa
     if (filters.quickWins) {
       results = results.filter(isQuickWin)
     }
-    if (filters.scope === 'template') {
+    if (filters.site === 'Template') {
+      results = results.filter(isTemplateWide)
+    } else if (filters.site) {
+      results = results.filter((f) => findingAffectsSite(f, filters.site))
+    } else if (filters.scope === 'template') {
       results = results.filter(isTemplateWide)
     } else if (filters.scope === 'site-specific') {
       results = results.filter((f) => !isTemplateWide(f))
@@ -973,7 +985,7 @@ function FindingsListView({ filters, setFilters, sortConfig, setSortConfig, onNa
 
       {/* Sort headers */}
       <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-        <div className="flex items-center gap-4 px-4 py-2 bg-gray-50 border-b border-gray-200">
+        <div className="hidden md:flex items-center gap-4 px-4 py-2 bg-gray-50 border-b border-gray-200">
           <div className="w-16">
             <SortHeader label="Priority" sortKey="priorityScore" sortConfig={sortConfig} onSort={handleSort} />
           </div>
@@ -1012,9 +1024,31 @@ function FindingsListView({ filters, setFilters, sortConfig, setSortConfig, onNa
 // DASHBOARD VIEW
 // ============================================================================
 
+function InfoPopover({ children }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <span className="relative inline-flex">
+      <button
+        onClick={(e) => { e.stopPropagation(); setOpen(!open) }}
+        className="ml-1.5 w-4 h-4 rounded-full bg-gray-200 text-gray-500 hover:bg-gray-300 hover:text-gray-700 inline-flex items-center justify-center text-xs font-bold leading-none transition-colors"
+        aria-label="How is this calculated?"
+      >
+        i
+      </button>
+      {open && (
+        <>
+          <div className="fixed inset-0 z-20" onClick={() => setOpen(false)} />
+          <div className="fixed left-3 right-3 bottom-4 md:absolute md:left-0 md:top-full md:bottom-auto md:right-auto mt-2 z-30 md:w-72 bg-white rounded-lg shadow-lg border border-gray-200 p-3 text-left">
+            {children}
+          </div>
+        </>
+      )}
+    </span>
+  )
+}
+
 function DashboardView({ onNavigate, setFilters }) {
   const templateFindings = FINDINGS.filter(isTemplateWide)
-  const siteSpecificFindings = FINDINGS.filter((f) => !isTemplateWide(f))
   const quickWins = FINDINGS.filter(isQuickWin)
   // Template health score: 100 - (sum of template impacts / max possible) * 100
   const maxPossibleImpact = templateFindings.length * 5
@@ -1032,12 +1066,14 @@ function DashboardView({ onNavigate, setFilters }) {
   // Top quick wins sorted by priority
   const topQuickWins = [...quickWins].sort((a, b) => getPriorityScore(b) - getPriorityScore(a)).slice(0, 5)
 
-  // Per-site metrics
+  // Per-site metrics — count ALL findings affecting each site (template-wide + all-except + site-specific)
   const siteMetrics = SITES.map((site) => {
-    const siteFindings = siteSpecificFindings.filter((f) => f.scope === site.name)
-    const refCount = FINDINGS.filter((f) => f.referenceImplementation === site.name).length
-    const highestImpact = siteFindings.length > 0 ? siteFindings.reduce((max, f) => f.userImpact > max.userImpact ? f : max, siteFindings[0]) : null
-    return { ...site, findingCount: siteFindings.length, refCount, highestImpact }
+    const affectingFindings = FINDINGS.filter((f) => findingAffectsSite(f, site.name) && !f.positive)
+    const siteOnlyCount = FINDINGS.filter((f) => f.scope === site.name && !f.positive).length
+    const topIssue = affectingFindings.length > 0
+      ? affectingFindings.reduce((max, f) => getPriorityScore(f) > getPriorityScore(max) ? f : max, affectingFindings[0])
+      : null
+    return { ...site, totalCount: affectingFindings.length, siteOnlyCount, topIssue }
   })
 
   // Validation stats
@@ -1059,55 +1095,71 @@ function DashboardView({ onNavigate, setFilters }) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Top metrics row */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {/* Health Score */}
-        <div className={`rounded-lg border p-6 ${getHealthBg(healthScore)}`}>
-          <div className="text-sm font-medium text-gray-500 mb-1">Template Health</div>
-          <div className={`text-4xl font-bold font-mono ${getHealthColor(healthScore)}`}>{healthScore}%</div>
+        <div className={`rounded-lg border p-4 md:p-6 ${getHealthBg(healthScore)}`}>
+          <div className="text-sm font-medium text-gray-500 mb-1 flex items-center">
+            Template Health
+            <InfoPopover>
+              <p className="text-sm font-semibold text-gray-800 mb-1.5">How Template Health is calculated</p>
+              <p className="text-xs text-gray-600 leading-relaxed mb-2">
+                Measures the overall severity of template-wide issues across all {SITES.length} sites. Only findings scoped to "Template-wide" or "All except..." are included.
+              </p>
+              <div className="text-xs font-mono bg-gray-50 rounded px-2 py-1.5 text-gray-700 mb-2">
+                100 &minus; (total impact / max impact) &times; 100
+              </div>
+              <ul className="text-xs text-gray-600 space-y-1">
+                <li><strong>Total impact:</strong> sum of User Impact scores ({currentImpact})</li>
+                <li><strong>Max impact:</strong> {templateFindings.length} findings &times; 5 = {maxPossibleImpact}</li>
+                <li><strong>Result:</strong> 100 &minus; ({currentImpact}/{maxPossibleImpact}) &times; 100 = <strong>{healthScore}%</strong></li>
+              </ul>
+            </InfoPopover>
+          </div>
+          <div className={`text-3xl md:text-4xl font-bold font-mono ${getHealthColor(healthScore)}`}>{healthScore}%</div>
           <div className="text-xs text-gray-500 mt-1">{templateFindings.length} template-wide issues</div>
         </div>
 
         {/* Total findings */}
-        <div className="rounded-lg border border-gray-200 bg-white p-6">
+        <div className="rounded-lg border border-gray-200 bg-white p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+          onClick={() => onNavigate('findings')}
+        >
           <div className="text-sm font-medium text-gray-500 mb-1">Total Findings</div>
-          <div className="text-4xl font-bold font-mono text-gray-900">{FINDINGS.length}</div>
-          <div className="text-xs text-gray-500 mt-1">
-            {templateFindings.length} template-wide, {siteSpecificFindings.length} site-specific
-          </div>
+          <div className="text-3xl md:text-4xl font-bold font-mono text-gray-900">{FINDINGS.length}</div>
+          <div className="text-xs text-blue-600 mt-1">View all findings &rarr;</div>
         </div>
 
         {/* Validation status */}
-        <div className="rounded-lg border border-gray-200 bg-white p-6">
+        <div className="rounded-lg border border-gray-200 bg-white p-4 md:p-6">
           <div className="text-sm font-medium text-gray-500 mb-1">Validated</div>
-          <div className="text-4xl font-bold font-mono text-green-600">{confirmedCount + partialCount + changedCount}</div>
+          <div className="text-3xl md:text-4xl font-bold font-mono text-green-600">{confirmedCount + partialCount + changedCount}</div>
           <div className="text-xs text-gray-500 mt-1">
             {confirmedCount} confirmed, {partialCount + changedCount} partial/changed, {unvalidatedCount} pending
           </div>
         </div>
 
         {/* Quick Wins */}
-        <div className="rounded-lg border border-green-200 bg-green-50 p-6 cursor-pointer hover:bg-green-100 transition-colors"
+        <div className="rounded-lg border border-green-200 bg-green-50 p-4 md:p-6 cursor-pointer hover:bg-green-100 transition-colors"
           onClick={() => {
             setFilters((f) => ({ ...f, quickWins: true }))
             onNavigate('findings')
           }}
         >
           <div className="text-sm font-medium text-gray-500 mb-1">Quick Wins</div>
-          <div className="text-4xl font-bold font-mono text-green-600">{quickWins.length}</div>
+          <div className="text-3xl md:text-4xl font-bold font-mono text-green-600">{quickWins.length}</div>
           <div className="text-xs text-green-600 mt-1">High impact + low effort &rarr;</div>
         </div>
 
       </div>
 
       {/* Category breakdown */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Findings by Category</h3>
         <div className="space-y-3">
           {categoryBreakdown.sort((a, b) => b.count - a.count).map((cat) => (
-            <div key={cat.name} className="flex items-center gap-3">
-              <div className="w-48 text-sm text-gray-700 truncate">{cat.name}</div>
+            <div key={cat.name} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+              <div className="w-full sm:w-48 text-sm text-gray-700 truncate">{cat.name}</div>
               <div className="flex-1 flex items-center gap-2">
                 <div className="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden">
                   <div
@@ -1118,16 +1170,16 @@ function DashboardView({ onNavigate, setFilters }) {
                   </div>
                 </div>
               </div>
-              <div className="w-20 text-xs text-gray-500">{cat.templateCount} template</div>
+              <div className="w-full sm:w-20 text-xs text-gray-500">{cat.templateCount} template</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Quick Wins + Site Cards row */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         {/* Quick Wins preview */}
-        <div className="col-span-1 bg-white rounded-lg border border-gray-200 p-6">
+        <div className="lg:col-span-1 bg-white rounded-lg border border-gray-200 p-4 md:p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">Top Quick Wins</h3>
             <button
@@ -1156,46 +1208,50 @@ function DashboardView({ onNavigate, setFilters }) {
         </div>
 
         {/* Per-site cards */}
-        <div className="col-span-2">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Per-Site Overview</h3>
-          <div className="grid grid-cols-2 gap-3">
-            {siteMetrics.map((site) => (
-              <div key={site.key} className={`rounded-lg border p-4 ${site.key === 'strawberrypark' ? 'border-green-300 bg-green-50' : 'border-gray-200 bg-white'}`}>
-                <div className="flex items-center justify-between mb-2">
-                  <div>
-                    <div className="font-semibold text-gray-900 text-sm">{site.name}</div>
-                    <a
-                      href={`https://${site.domain}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-blue-600 hover:text-blue-800 hover:underline"
-                    >
-                      {site.domain}
-                    </a>
+        <div className="lg:col-span-2">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Site Overview</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Template card */}
+            <button
+              onClick={() => {
+                setFilters((f) => ({ ...f, site: 'Template', scope: 'all', quickWins: false }))
+                onNavigate('findings')
+              }}
+              className="rounded-lg border-2 p-4 border-blue-200 bg-blue-50 text-left hover:border-blue-400 transition-colors flex flex-col justify-start"
+            >
+              <div className="font-semibold text-gray-900 text-sm mb-2">Template (All Sites)</div>
+              <div className="text-xs text-gray-500">
+                <span className="font-semibold text-gray-700">{templateFindings.length}</span> template-wide {templateFindings.length === 1 ? 'issue' : 'issues'}
+                {templateFindings.length > 0 && (
+                  <div className="mt-1 text-gray-600 truncate">
+                    Top: {[...templateFindings].sort((a, b) => getPriorityScore(b) - getPriorityScore(a))[0].title}
                   </div>
-                  {site.key === 'strawberrypark' && (
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-200 text-green-800">Benchmark</span>
-                  )}
-                  {site.refCount > 0 && site.key !== 'strawberrypark' && (
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700">Ref x{site.refCount}</span>
-                  )}
+                )}
+              </div>
+            </button>
+
+            {/* Per-site cards */}
+            {siteMetrics.map((site) => (
+              <button
+                key={site.key}
+                onClick={() => {
+                  setFilters((f) => ({ ...f, site: site.name, scope: 'all', quickWins: false }))
+                  onNavigate('findings')
+                }}
+                className="rounded-lg border-2 p-4 border-gray-200 bg-white text-left hover:border-blue-400 transition-colors flex flex-col justify-start"
+              >
+                <div className="mb-2">
+                  <div className="font-semibold text-gray-900 text-sm">{site.name}</div>
+                  <span className="text-xs text-gray-400">{site.domain}</span>
                 </div>
                 <div className="text-xs text-gray-500">
-                  {site.findingCount > 0 ? (
-                    <>
-                      <span className="font-semibold text-gray-700">{site.findingCount}</span> site-specific {site.findingCount === 1 ? 'issue' : 'issues'}
-                      {site.highestImpact && (
-                        <div className="mt-1 text-gray-600 truncate">Top: {site.highestImpact.title}</div>
-                      )}
-                    </>
-                  ) : (
-                    <span className="text-green-600">No site-specific issues</span>
-                  )}
-                  {site.refCount > 0 && (
-                    <div className="mt-1 text-green-600">Reference for {site.refCount} {site.refCount === 1 ? 'finding' : 'findings'}</div>
+                  <span className="font-semibold text-gray-700">{site.totalCount}</span> total {site.totalCount === 1 ? 'issue' : 'issues'}
+                  <span className="text-gray-400 ml-1">({site.siteOnlyCount} site-specific)</span>
+                  {site.topIssue && (
+                    <div className="mt-1 text-gray-600 truncate">Top: {site.topIssue.title}</div>
                   )}
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -1220,6 +1276,7 @@ export default function App() {
     category: null,
     status: null,
     quickWins: false,
+    site: null,
   })
   const [sortConfig, setSortConfig] = useState({
     key: 'priorityScore',
@@ -1234,10 +1291,10 @@ export default function App() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+        <div className="max-w-7xl mx-auto px-3 md:px-6 flex items-center justify-between h-14">
           <div className="flex items-center gap-3">
-            <h1 className="text-lg font-bold text-gray-900">RV Park UX Audit</h1>
-            <span className="text-xs text-gray-400 border border-gray-200 rounded px-1.5 py-0.5">5 sites &middot; {FINDINGS.length} findings</span>
+            <h1 className="text-base md:text-lg font-bold text-gray-900">RV Park UX Audit</h1>
+            <span className="hidden sm:inline text-xs text-gray-400 border border-gray-200 rounded px-1.5 py-0.5">5 sites &middot; {FINDINGS.length} findings</span>
           </div>
           <nav className="flex gap-1">
             {NAV_ITEMS.map((item) => (
@@ -1258,7 +1315,7 @@ export default function App() {
       </header>
 
       {/* Main content */}
-      <main className="max-w-7xl mx-auto px-6 py-6">
+      <main className="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-6">
         {activeView === 'dashboard' && (
           <DashboardView onNavigate={handleNavigate} setFilters={setFilters} />
         )}
