@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.vite/
+*.local
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/
+.mcp.json
+.playwright-mcp/
