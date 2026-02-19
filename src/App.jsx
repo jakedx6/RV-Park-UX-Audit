@@ -22,12 +22,6 @@ const CATEGORIES = [
   'Accessibility',
 ]
 
-const STATUSES = [
-  'Confirmed',
-  'Partially Confirmed',
-  'Changed',
-  'Not Found',
-]
 
 
 // ============================================================================
@@ -603,7 +597,8 @@ const FINDINGS = [
   // Framed as improvement opportunities, each linked to research via researchRefs
   {
     id: 51,
-    title: 'Opportunity: Surface rates/pricing directly on site to reduce abandonment',
+    type: 'opportunity',
+    title: 'Surface rates/pricing directly on site to reduce abandonment',
     scope: 'Template-wide',
     category: 'Conversion Flow',
     description: 'Research shows 55% of travelers abandon bookings over unexpected costs, and RV travelers actively comparison-shop across 3-5 parks. Currently, rate information requires navigating to a separate page or clicking through to an external booking platform. Surfacing clear rate ranges — by site type, with included utilities and seasonal variations — directly on the homepage or accommodations page would significantly reduce friction and abandonment.',
@@ -616,7 +611,8 @@ const FINDINGS = [
   },
   {
     id: 52,
-    title: 'Opportunity: Integrated booking platform vs. external Campspot redirect',
+    type: 'opportunity',
+    title: 'Integrated booking platform vs. external Campspot redirect',
     scope: 'All except Joy RV',
     category: 'Conversion Flow',
     description: 'When visitors click "Book Now" on most of these sites, they are redirected to Campspot — an entirely different domain with different branding. Research shows this contextual break causes 19-26% abandonment. Joy RV\'s inline Newbook widget (ID 42) proves integrated booking is possible and delivers a dramatically better experience. An integrated, on-site booking platform would eliminate the redirect abandonment and keep visitors in a consistent branded experience throughout the conversion funnel.',
@@ -629,6 +625,7 @@ const FINDINGS = [
   },
   {
     id: 53,
+    type: 'opportunity',
     title: 'Standardize Google review aggregates on all homepages',
     scope: 'Template-wide',
     category: 'Trust Signals',
@@ -642,7 +639,8 @@ const FINDINGS = [
   },
   {
     id: 54,
-    title: 'Opportunity: Dedicated "Things to Do Nearby" local area page',
+    type: 'opportunity',
+    title: 'Dedicated "Things to Do Nearby" local area page',
     scope: 'Template-wide',
     category: 'Content Strategy',
     description: 'Local area content serves three conversion purposes: it answers "is there enough to do?" (decision-making), captures "camping near [attraction]" searches (SEO), and is the primary way parks sharing the same template can differentiate from each other. A dedicated page organized by activity type — with distances, drive times, and seasonal suggestions — would drive both organic traffic and bookings.',
@@ -655,7 +653,8 @@ const FINDINGS = [
   },
   {
     id: 55,
-    title: 'Opportunity: Seasonal/urgency messaging to drive advance bookings',
+    type: 'opportunity',
+    title: 'Seasonal/urgency messaging to drive advance bookings',
     scope: 'Template-wide',
     category: 'Conversion Flow',
     description: 'Campsite demand has surged 4x since 2019, making scarcity real — not manufactured. Currently, only River Oaks uses any urgency messaging (an aggressive popup, ID 40). There\'s an opportunity to implement tasteful, honest seasonal messaging: dynamic hero content by season, availability indicators, and early-bird incentives that encourage advance planning without resorting to manipulative tactics.',
@@ -668,7 +667,8 @@ const FINDINGS = [
   },
   {
     id: 56,
-    title: 'Opportunity: Add actual RV site/pad photos alongside landscape imagery',
+    type: 'opportunity',
+    title: 'Add actual RV site/pad photos alongside landscape imagery',
     scope: 'Template-wide',
     category: 'Content Strategy',
     description: 'Research shows 78% of travelers make accommodation decisions from photos alone, yet quality photography can potentially double yearly reservations. Current site photos emphasize landscapes and amenity icons but don\'t show what RV travelers most want to see: the actual RV pads — surface condition, hookup placement, site spacing, shade coverage, and leveling. Adding site-level photography would address the most decision-critical visual gap.',
@@ -681,7 +681,8 @@ const FINDINGS = [
   },
   {
     id: 57,
-    title: 'Opportunity: Display hookup specs (30/50 amp, full/partial) on homepage',
+    type: 'opportunity',
+    title: 'Display hookup specs (30/50 amp, full/partial) on homepage',
     scope: 'Template-wide',
     category: 'Content Strategy',
     description: 'RV travelers need to match their rig to the site — 30 vs. 50 amp, full hookup vs. partial, sewer availability, and WiFi reliability are non-negotiable decision factors. Currently, this information is buried in booking platforms or accommodation subpages. Surfacing key specs directly in the homepage accommodation cards or a clear comparison table would eliminate a major source of phone calls and reduce decision friction.',
@@ -694,7 +695,8 @@ const FINDINGS = [
   },
   {
     id: 58,
-    title: 'Opportunity: Streamline contact/inquiry forms to reduce friction',
+    type: 'opportunity',
+    title: 'Streamline contact/inquiry forms to reduce friction',
     scope: 'Template-wide',
     category: 'Conversion Flow',
     description: 'Research shows 26% of travelers abandon bookings over complicated forms, and 39% of mobile users abandon due to form difficulty. Streamlining contact and inquiry forms — fewer required fields, larger inputs, auto-fill support, and native mobile date pickers — would reduce friction for both desktop and mobile users. The optimal flow: dates and basic info first, then details after availability is confirmed.',
@@ -707,7 +709,8 @@ const FINDINGS = [
   },
   {
     id: 59,
-    title: 'Opportunity: Feature guest/user-generated photo content for authenticity',
+    type: 'opportunity',
+    title: 'Feature guest/user-generated photo content for authenticity',
     scope: 'Template-wide',
     category: 'Trust Signals',
     description: '62% of travelers say images posted by real guests are the most influential endorsement — more than professional photography. Featuring user-generated content (UGC) from guest photos, social media, and reviews would boost trust signals while costing nothing to produce. Even low-quality guest photos outperform polished brand photography for authenticity.',
@@ -720,7 +723,8 @@ const FINDINGS = [
   },
   {
     id: 60,
-    title: 'Opportunity: Surface cancellation/refund policy before booking step',
+    type: 'opportunity',
+    title: 'Surface cancellation/refund policy before booking step',
     scope: 'Template-wide',
     category: 'Trust Signals',
     description: 'Research identifies "restrictive terms" as one of the biggest dealbreakers for travel bookings. Making the cancellation and refund policy visible and easy to find — before visitors enter the booking flow — reduces hesitation and builds confidence. A clear, simple policy displayed near booking CTAs signals transparency and encourages commitment.',
@@ -926,12 +930,6 @@ const CATEGORY_COLORS = {
   'Accessibility': 'bg-teal-100 text-teal-700',
 }
 
-const STATUS_COLORS = {
-  'Confirmed': 'bg-green-100 text-green-800',
-  'Partially Confirmed': 'bg-yellow-100 text-yellow-800',
-  'Changed': 'bg-orange-100 text-orange-800',
-  'Not Found': 'bg-red-100 text-red-800',
-}
 
 function getScopeType(scope) {
   if (scope === 'Template-wide') return 'template-wide'
@@ -974,14 +972,6 @@ function CategoryBadge({ category }) {
   )
 }
 
-function StatusBadge({ status }) {
-  if (!status) return null
-  return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${STATUS_COLORS[status] || 'bg-gray-100 text-gray-700'}`}>
-      {status}
-    </span>
-  )
-}
 
 
 // ============================================================================
@@ -994,7 +984,7 @@ function FindingRow({ finding, isExpanded, onToggle, onNavigate }) {
   const isTemplate = isTemplateWide(finding)
 
   return (
-    <div className={`border-b border-gray-200 ${isTemplate ? 'border-l-4 border-l-blue-400' : ''} ${finding.positive ? 'border-l-4 border-l-green-400' : ''}`}>
+    <div className={`border-b border-gray-200 ${finding.type === 'opportunity' ? 'border-l-4 border-l-purple-400' : isTemplate ? 'border-l-4 border-l-blue-400' : ''} ${finding.positive ? 'border-l-4 border-l-green-400' : ''}`}>
       <div
         className="flex items-start md:items-center gap-2 md:gap-4 px-3 md:px-4 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
         onClick={onToggle}
@@ -1013,6 +1003,9 @@ function FindingRow({ finding, isExpanded, onToggle, onNavigate }) {
           <div className="flex flex-wrap gap-1.5 mt-1">
             <ScopeBadge scope={finding.scope} />
             <CategoryBadge category={finding.category} />
+            {finding.type === 'opportunity' && (
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-700">Opportunity</span>
+            )}
           </div>
         </div>
 
@@ -1207,18 +1200,22 @@ function FilterBar({ filters, setFilters, findingsCount, totalCount }) {
           ))}
         </select>
 
-        {/* Status filter */}
-        <select
-          value={filters.status || ''}
-          onChange={(e) => setFilters((f) => ({ ...f, status: e.target.value || null }))}
-          className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 bg-white"
-        >
-          <option value="">All Statuses</option>
-          {STATUSES.map((s) => (
-            <option key={s} value={s}>{s}</option>
+        {/* Type toggle — Issues vs Opportunities */}
+        <div className="flex rounded-lg border border-gray-200 overflow-hidden text-sm">
+          {['all', 'issues', 'opportunities'].map((type) => (
+            <button
+              key={type}
+              onClick={() => setFilters((f) => ({ ...f, type }))}
+              className={`px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
+                filters.type === type
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              {type === 'all' ? 'All' : type === 'issues' ? 'Issues' : 'Opportunities'}
+            </button>
           ))}
-          <option value="unvalidated">Unvalidated</option>
-        </select>
+        </div>
 
         {/* Quick Wins toggle */}
         <button
@@ -1279,12 +1276,10 @@ function FindingsListView({ filters, setFilters, sortConfig, setSortConfig, onNa
     if (filters.category) {
       results = results.filter((f) => f.category === filters.category)
     }
-    if (filters.status) {
-      if (filters.status === 'unvalidated') {
-        results = results.filter((f) => !f.status)
-      } else {
-        results = results.filter((f) => f.status === filters.status)
-      }
+    if (filters.type === 'opportunities') {
+      results = results.filter((f) => f.type === 'opportunity')
+    } else if (filters.type === 'issues') {
+      results = results.filter((f) => f.type !== 'opportunity')
     }
     results.sort((a, b) => {
       let aVal, bVal
@@ -1412,11 +1407,6 @@ function DashboardView({ onNavigate, setFilters }) {
     return { ...site, totalCount: affectingFindings.length, siteOnlyCount, topIssue }
   })
 
-  // Validation stats
-  const confirmedCount = FINDINGS.filter((f) => f.status === 'Confirmed').length
-  const partialCount = FINDINGS.filter((f) => f.status === 'Partially Confirmed').length
-  const changedCount = FINDINGS.filter((f) => f.status === 'Changed').length
-  const unvalidatedCount = FINDINGS.filter((f) => !f.status).length
 
   function getHealthColor(score) {
     if (score >= 70) return 'text-green-600'
@@ -1807,9 +1797,9 @@ export default function App() {
   const [filters, setFilters] = useState({
     scope: 'all',
     category: null,
-    status: null,
     quickWins: false,
     site: null,
+    type: 'all',
   })
   const [sortConfig, setSortConfig] = useState({
     key: 'priorityScore',
