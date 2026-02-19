@@ -48,10 +48,10 @@ const FINDINGS = [
     userImpact: 4,
     estimatedEffort: 3,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta', 'older-demographics'],
     link: 'https://riveroakspark.com',
     evidence: [
-      { src: '/Images/validation/riveroaks-T1-split-nav.png', caption: 'River Oaks split nav with centered logo' },
-      { src: '/Images/validation/strawberry-SP1-logo-left-aligned.png', caption: 'Strawberry Park left-aligned logo (reference)' },
+      { src: '/Images/riveroakspark-header-navigation.png', caption: 'River Oaks split nav with centered logo' },
     ],
     referenceImplementation: 'Strawberry Park',
     notes: 'Strawberry Park has the logo top-left with a single nav bar — use as the reference. This is a template-level structural change that would improve all 4 affected sites at once.',
@@ -66,6 +66,7 @@ const FINDINGS = [
     userImpact: 4,
     estimatedEffort: 3,
     status: 'Confirmed',
+    researchRefs: ['local-area-content', 'demographics'],
     link: 'https://riveroakspark.com',
     evidence: [
       { src: '/Images/validation/riveroaks-T3-seo-copy.png', caption: 'River Oaks keyword-stuffed body copy' },
@@ -82,6 +83,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta', 'demographics'],
     referenceImplementation: 'Strawberry Park',
     notes: 'River Oaks, Trinity Alps, and Bearded Buffalo all use the exact same tagline "Embrace the outdoor lifestyle". Joy RV uses "Come and Experience Joy" (unique/branded). Strawberry Park adds "family" but is otherwise the same template text.',
   },
@@ -94,6 +96,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['pricing-transparency', 'trust-signals'],
     referenceImplementation: null,
     notes: 'Per-site amenity labels: River Oaks: playground, fishing, wifi, laundry. Trinity Alps: fishing, campfires, river access, showers. Bearded Buffalo: fishing, campfires, hiking, playground. Joy RV: hiking, drive-in movies, wifi, laundry. Strawberry Park: pools & hottub, Rec Center, live music, sport courts, laundry (5 tiles, most variety).',
   },
@@ -122,6 +125,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['older-demographics'],
     referenceImplementation: null,
     notes: 'Per-site breakdown — River Oaks: logo alt is a 178-char SEO string; Bearded Buffalo: completely empty alt="" on all 4 amenity images (worst); Joy RV: alt="camping near temple tx" for hiking tile (wrong city); Strawberry Park: logo alt is good but amenities still SEO-stuffed.',
   },
@@ -134,6 +138,7 @@ const FINDINGS = [
     userImpact: 4,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['older-demographics'],
     link: 'https://riveroakspark.com',
     evidence: [
       { src: '/Images/validation/riveroaks-T4-T5-hero-section.png', caption: 'Transparent header over hero — contrast issues' },
@@ -150,6 +155,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta'],
     evidence: [
       { src: '/Images/validation/joyrv-homepage-viewport.png', caption: 'Joy RV hero showing excessive line spacing' },
     ],
@@ -165,6 +171,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta'],
     link: 'https://riveroakspark.com',
     referenceImplementation: null,
     notes: 'Make each amenity tile clickable — either linking to the amenities page or expanding to show more detail. The images are the most visually prominent element in the section but do nothing when clicked.',
@@ -196,6 +203,7 @@ const FINDINGS = [
     userImpact: 2,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://trinityalpsrvpark.com',
     evidence: [
       { src: '/Images/validation/trinityalps-TA1-testimonials-empty.png', caption: 'Empty testimonials section — heading with no content' },
@@ -213,6 +221,7 @@ const FINDINGS = [
     userImpact: 1,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://joyrv.org/amenities/',
     referenceImplementation: null,
     notes: 'Add a "Coming Soon" badge or visual treatment to clearly separate planned vs. available amenities. Trivial fix with high impact on managing visitor expectations.',
@@ -229,6 +238,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['older-demographics'],
     link: 'https://beardedbuffaloresort.com',
     evidence: [
       { src: '/Images/validation/beardedbuffalo-BB3-amenities-empty-alt.png', caption: 'All 4 amenity images with empty alt text' },
@@ -245,6 +255,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://strawberrypark.net',
     evidence: [
       { src: '/Images/validation/strawberry-SP6-testimonials-empty.png', caption: 'Trustindex widget invisible — Google Maps shows 3.7 stars' },
@@ -261,6 +272,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://strawberrypark.net',
     referenceImplementation: null,
     notes: 'The T Crossley review is 5 stars but the comment is negative in tone. With only 3 reviews visible, this has outsized impact on first impressions. Recommend replacing with a positive-comment review from the 748 available Google reviews.',
@@ -277,6 +289,7 @@ const FINDINGS = [
     userImpact: 2,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta'],
     link: 'https://strawberrypark.net/for-sale-lease-to-own/',
     referenceImplementation: null,
     notes: 'Consider moving to a secondary nav tier or under an "About" or "More" menu.',
@@ -290,6 +303,7 @@ const FINDINGS = [
     userImpact: 2,
     estimatedEffort: 5,
     status: null,
+    researchRefs: ['trust-signals'],
     referenceImplementation: null,
     notes: 'Low priority — domain migration is a major project. Worth discussing but not urgent.',
   },
@@ -314,6 +328,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 3,
     status: null,
+    researchRefs: ['local-area-content', 'demographics'],
     referenceImplementation: 'Strawberry Park',
     notes: 'Same template-wide copy issue but at a moderate level. Strawberry Park\'s natural tone is the reference.',
   },
@@ -326,6 +341,7 @@ const FINDINGS = [
     userImpact: 2,
     estimatedEffort: 3,
     status: null,
+    researchRefs: ['homepage-cta', 'older-demographics'],
     referenceImplementation: null,
     notes: 'Minor issue for Strawberry Park specifically. The nav works but could be simplified.',
   },
@@ -340,6 +356,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['trust-signals', 'mobile-booking'],
     link: 'https://strawberrypark.net',
     evidence: [
       { src: '/Images/validation/strawberry-T8-footer.png', caption: 'Footer showing (813) area code mismatch' },
@@ -372,6 +389,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['older-demographics'],
     link: 'https://joyrv.org',
     evidence: null,
     referenceImplementation: null,
@@ -386,6 +404,7 @@ const FINDINGS = [
     userImpact: 2,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://trinityalpsrvpark.com',
     evidence: null,
     referenceImplementation: null,
@@ -400,6 +419,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://trinityalpsrvpark.com',
     evidence: [
       { src: '/Images/validation/trinityalps-TA1-testimonials-empty.png', caption: 'Empty testimonials section from Splide error' },
@@ -416,6 +436,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://joyrv.org',
     evidence: null,
     referenceImplementation: null,
@@ -430,6 +451,7 @@ const FINDINGS = [
     userImpact: 2,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['trust-signals'],
     link: 'https://joyrv.org',
     evidence: null,
     referenceImplementation: null,
@@ -444,6 +466,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['seasonal-urgency', 'conversion-barriers'],
     link: 'https://riveroakspark.com',
     evidence: [
       { src: '/Images/validation/riveroaks-homepage-viewport.png', caption: 'Popup modal blocking all content on load' },
@@ -451,23 +474,7 @@ const FINDINGS = [
     referenceImplementation: null,
     notes: 'Aggressive popup on first visit creates friction. Consider a less intrusive banner or delay the popup.',
   },
-  {
-    id: 42,
-    title: 'Best booking experience — inline Newbook widget',
-    scope: 'Joy RV',
-    category: 'Conversion Flow',
-    description: 'Joy RV\'s /booking/ page features a full inline Newbook widget with date pickers, guest count, equipment type/dimensions, feature filters, and social proof notifications. This is the best booking UX across all 5 sites.',
-    userImpact: 0,
-    estimatedEffort: 0,
-    positive: true,
-    status: 'Confirmed',
-    link: 'https://joyrv.org/booking/',
-    evidence: [
-      { src: '/Images/validation/joyrv-booking-page-inline-widget.png', caption: 'Inline Newbook booking widget with social proof' },
-    ],
-    referenceImplementation: null,
-    notes: 'Positive finding. Significantly better than external Campspot redirects on other sites. Worth looking at as a model for booking UX across the portfolio.',
-  },
+  // ID 42 removed — positive-only finding (Joy RV inline Newbook widget); referenced as best example in IDs 50 and 52
   {
     id: 43,
     title: 'Hero text and CTA unreadable over video background',
@@ -477,6 +484,7 @@ const FINDINGS = [
     userImpact: 5,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['older-demographics', 'homepage-cta'],
     link: 'https://riveroakspark.com',
     evidence: [
       { src: '/Images/validation/riveroaks-hero-white-text.png', caption: 'River Oaks hero — white text over video with no contrast treatment' },
@@ -493,6 +501,7 @@ const FINDINGS = [
     userImpact: 4,
     estimatedEffort: 1,
     status: 'Confirmed',
+    researchRefs: ['older-demographics'],
     link: 'https://joyrv.org/amenities/',
     evidence: [
       { src: '/Images/validation/joyrv-amenities-contrast-issues.png', caption: 'Joy RV amenity tiles — white text with no overlay, very hard to read' },
@@ -510,6 +519,7 @@ const FINDINGS = [
     userImpact: 5,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['mobile-booking'],
     link: 'https://riveroakspark.com',
     evidence: [
       { src: '/Images/validation/riveroaks-mobile-hero.png', caption: 'Mobile view — oversized nav, headline pushed down, CTA nearly cut off' },
@@ -526,6 +536,7 @@ const FINDINGS = [
     userImpact: 4,
     estimatedEffort: 4,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta', 'older-demographics'],
     referenceImplementation: null,
     notes: 'Where possible, flatten the navigation so key pages are directly visible. If dropdowns are unavoidable due to the number of pages, ensure the most important items (Accommodations, Rates, Book Now) are always top-level and visible without hovering or clicking.',
   },
@@ -538,6 +549,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 3,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta'],
     link: 'https://beardedbuffaloresort.com',
     referenceImplementation: 'Bearded Buffalo',
     notes: 'Use a more standard left-aligned logo placement with enough horizontal space to handle logos that contain text. The centered circular layout only works for simple icon logos like Bearded Buffalo\'s. This ties into the broader split nav issue (ID 1) — a left-aligned nav with the logo at standard size would solve both problems.',
@@ -551,6 +563,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 3,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta', 'demographics'],
     link: 'https://trinityalpsrvpark.com',
     referenceImplementation: null,
     notes: 'Replace with more scannable, engaging content that speaks to "why Trinity Alps" in small text chunks with supporting visuals. Use short benefit-driven sections with icons or images instead of paragraph-heavy SEO copy. Visitors want to quickly understand what makes this park special, not read an essay.',
@@ -564,6 +577,7 @@ const FINDINGS = [
     userImpact: 3,
     estimatedEffort: 2,
     status: 'Confirmed',
+    researchRefs: ['conversion-barriers', 'mobile-booking'],
     link: 'https://joyrv.org/booking/',
     evidence: [
       { src: '/Images/validation/joyrv-booking-filters-size.png', caption: 'Booking filters take up most of the viewport — listings pushed below fold' },
@@ -580,8 +594,301 @@ const FINDINGS = [
     userImpact: 4,
     estimatedEffort: 3,
     status: 'Confirmed',
+    researchRefs: ['homepage-cta', 'conversion-barriers'],
     referenceImplementation: 'Joy RV',
     notes: 'Joy RV\'s inline Newbook widget on /booking/ proves the integration is possible. Bring smaller, more interactive versions of this into key pages across the site — not just the homepage. A compact date picker after amenities, a "sites available this weekend" teaser on the accommodations page, or an availability preview on the rates page would all be more engaging than static "Book Now" buttons. Multiple interactive touchpoints increase conversion as visitors explore.',
+  },
+
+  // --- Research-backed Recommendations (IDs 51-60) ---
+  // Framed as improvement opportunities, each linked to research via researchRefs
+  {
+    id: 51,
+    title: 'Opportunity: Surface rates/pricing directly on site to reduce abandonment',
+    scope: 'Template-wide',
+    category: 'Conversion Flow',
+    description: 'Research shows 55% of travelers abandon bookings over unexpected costs, and RV travelers actively comparison-shop across 3-5 parks. Currently, rate information requires navigating to a separate page or clicking through to an external booking platform. Surfacing clear rate ranges — by site type, with included utilities and seasonal variations — directly on the homepage or accommodations page would significantly reduce friction and abandonment.',
+    userImpact: 5,
+    estimatedEffort: 2,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['pricing-transparency', 'conversion-barriers'],
+    notes: 'Display rates by site type (full hookup, partial, pull-through) with amp service (30/50), nightly/weekly/monthly, and what\'s included. Show Good Sam/AAA/military discounts prominently. "Call for rates" is a documented conversion killer. Even a rate range ("From $45/night") is better than nothing.',
+  },
+  {
+    id: 52,
+    title: 'Opportunity: Integrated booking platform vs. external Campspot redirect',
+    scope: 'All except Joy RV',
+    category: 'Conversion Flow',
+    description: 'When visitors click "Book Now" on most of these sites, they are redirected to Campspot — an entirely different domain with different branding. Research shows this contextual break causes 19-26% abandonment. Joy RV\'s inline Newbook widget (ID 42) proves integrated booking is possible and delivers a dramatically better experience. An integrated, on-site booking platform would eliminate the redirect abandonment and keep visitors in a consistent branded experience throughout the conversion funnel.',
+    userImpact: 4,
+    estimatedEffort: 3,
+    status: null,
+    referenceImplementation: 'Joy RV',
+    researchRefs: ['conversion-barriers', 'homepage-cta'],
+    notes: 'This is a strong case for investing in an integrated bookings platform. The redirect to Campspot creates a measurable conversion gap. Joy RV\'s Newbook integration shows this is technically feasible within the template. An owned booking platform would also provide direct access to customer data, enable upselling, and eliminate third-party commission.',
+  },
+  {
+    id: 53,
+    title: 'Standardize Google review aggregates on all homepages',
+    scope: 'Template-wide',
+    category: 'Trust Signals',
+    description: 'Google reviews are the #1 trusted source for accommodation decisions, and 62% of travelers say real guest reviews are more influential than marketing copy. Some sites (Bearded Buffalo, parts of Strawberry Park) already display review content, but it\'s inconsistent. Standardizing a visible Google review aggregate — star rating, review count, and 2-3 recent positive quotes — on every homepage would strengthen trust signals across all properties.',
+    userImpact: 4,
+    estimatedEffort: 2,
+    status: null,
+    referenceImplementation: 'Bearded Buffalo',
+    researchRefs: ['trust-signals'],
+    notes: 'Bearded Buffalo already shows review content. Strawberry Park has a broken Trustindex widget (ID 19). Joy RV claims "4.8 stars" but hides the actual reviews (ID 38). Trinity Alps has an empty testimonials section (ID 12). A template-level Google Reviews widget would solve multiple existing findings while boosting trust across all sites.',
+  },
+  {
+    id: 54,
+    title: 'Opportunity: Dedicated "Things to Do Nearby" local area page',
+    scope: 'Template-wide',
+    category: 'Content Strategy',
+    description: 'Local area content serves three conversion purposes: it answers "is there enough to do?" (decision-making), captures "camping near [attraction]" searches (SEO), and is the primary way parks sharing the same template can differentiate from each other. A dedicated page organized by activity type — with distances, drive times, and seasonal suggestions — would drive both organic traffic and bookings.',
+    userImpact: 3,
+    estimatedEffort: 3,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['local-area-content'],
+    notes: 'Organize by activity type: hiking, fishing, water activities, family attractions, dining, cultural sites. Include distance/drive time from the park. Add seasonal content ("What to do nearby in fall") to target off-season search traffic. Cross-promotion partnerships with local attractions create exclusivity signals. This is the biggest differentiation opportunity for template-shared sites.',
+  },
+  {
+    id: 55,
+    title: 'Opportunity: Seasonal/urgency messaging to drive advance bookings',
+    scope: 'Template-wide',
+    category: 'Conversion Flow',
+    description: 'Campsite demand has surged 4x since 2019, making scarcity real — not manufactured. Currently, only River Oaks uses any urgency messaging (an aggressive popup, ID 40). There\'s an opportunity to implement tasteful, honest seasonal messaging: dynamic hero content by season, availability indicators, and early-bird incentives that encourage advance planning without resorting to manipulative tactics.',
+    userImpact: 3,
+    estimatedEffort: 2,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['seasonal-urgency'],
+    notes: 'Seasonal hero content rotation: off-season ("Plan Your Summer — Book Early for Best Selection"), peak approach ("Summer Weekends Filling Fast"), peak ("Check Availability" with calendar), post-season ("Join the Waitlist for Next Year"). Real-time availability calendar creates natural urgency. Early-bird discounts ("Book before March 15 for 15% off") fill shoulder seasons. Avoid fake countdowns or manufactured scarcity.',
+  },
+  {
+    id: 56,
+    title: 'Opportunity: Add actual RV site/pad photos alongside landscape imagery',
+    scope: 'Template-wide',
+    category: 'Content Strategy',
+    description: 'Research shows 78% of travelers make accommodation decisions from photos alone, yet quality photography can potentially double yearly reservations. Current site photos emphasize landscapes and amenity icons but don\'t show what RV travelers most want to see: the actual RV pads — surface condition, hookup placement, site spacing, shade coverage, and leveling. Adding site-level photography would address the most decision-critical visual gap.',
+    userImpact: 4,
+    estimatedEffort: 3,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['photo-content', 'trust-signals'],
+    notes: 'Priority photography: individual RV sites (pad surface, hookups, spacing, shade), people enjoying the park, amenities in use (not empty), entry/landmark shots, aerial drone overview, golden-hour shots. 51% of customers respond better to images of real people. Gallery should support full-screen viewing without leaving the page. Technical: WebP format, responsive sizing, lazy loading for mobile performance.',
+  },
+  {
+    id: 57,
+    title: 'Opportunity: Display hookup specs (30/50 amp, full/partial) on homepage',
+    scope: 'Template-wide',
+    category: 'Content Strategy',
+    description: 'RV travelers need to match their rig to the site — 30 vs. 50 amp, full hookup vs. partial, sewer availability, and WiFi reliability are non-negotiable decision factors. Currently, this information is buried in booking platforms or accommodation subpages. Surfacing key specs directly in the homepage accommodation cards or a clear comparison table would eliminate a major source of phone calls and reduce decision friction.',
+    userImpact: 4,
+    estimatedEffort: 2,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['pricing-transparency', 'trust-signals'],
+    notes: 'Amenity tiles currently show single-word labels (ID 5). Replacing or supplementing these with specific hookup specs would be far more useful for RV travelers making a booking decision. A simple grid: site type, amp service, hookups included, max RV length, price range.',
+  },
+  {
+    id: 58,
+    title: 'Opportunity: Streamline contact/inquiry forms to reduce friction',
+    scope: 'Template-wide',
+    category: 'Conversion Flow',
+    description: 'Research shows 26% of travelers abandon bookings over complicated forms, and 39% of mobile users abandon due to form difficulty. Streamlining contact and inquiry forms — fewer required fields, larger inputs, auto-fill support, and native mobile date pickers — would reduce friction for both desktop and mobile users. The optimal flow: dates and basic info first, then details after availability is confirmed.',
+    userImpact: 3,
+    estimatedEffort: 2,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['conversion-barriers', 'mobile-booking'],
+    notes: 'Minimize required fields to the absolute minimum. Use native mobile date inputs (not desktop calendar widgets). Support auto-fill for name, email, address. Large input fields with adequate spacing. Specific validation messages ("Please enter a valid phone number") not generic errors. Guest checkout must be available — no forced account creation.',
+  },
+  {
+    id: 59,
+    title: 'Opportunity: Feature guest/user-generated photo content for authenticity',
+    scope: 'Template-wide',
+    category: 'Trust Signals',
+    description: '62% of travelers say images posted by real guests are the most influential endorsement — more than professional photography. Featuring user-generated content (UGC) from guest photos, social media, and reviews would boost trust signals while costing nothing to produce. Even low-quality guest photos outperform polished brand photography for authenticity.',
+    userImpact: 3,
+    estimatedEffort: 3,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['photo-content', 'trust-signals'],
+    notes: 'Implementation path: create a branded hashtag displayed physically in the park (on signs, check-in cards). Request guest photos post-stay in follow-up emails. Feature the best UGC prominently on the site — a dedicated gallery section or integrated into the reviews area. Instagram feed embed is the lowest-effort starting point.',
+  },
+  {
+    id: 60,
+    title: 'Opportunity: Surface cancellation/refund policy before booking step',
+    scope: 'Template-wide',
+    category: 'Trust Signals',
+    description: 'Research identifies "restrictive terms" as one of the biggest dealbreakers for travel bookings. Making the cancellation and refund policy visible and easy to find — before visitors enter the booking flow — reduces hesitation and builds confidence. A clear, simple policy displayed near booking CTAs signals transparency and encourages commitment.',
+    userImpact: 4,
+    estimatedEffort: 1,
+    status: null,
+    referenceImplementation: null,
+    researchRefs: ['conversion-barriers', 'trust-signals'],
+    notes: 'Add a brief cancellation summary near "Book Now" CTAs (e.g., "Free cancellation up to 48 hours before check-in"). Link to full policy. This is a quick win — simple content addition with outsized trust impact. Burying the policy in fine print or requiring visitors to search for it increases abandonment.',
+  },
+]
+
+// ============================================================================
+// RESEARCH DATA
+// Research compiled from industry sources on RV park/campground UX & conversions
+// Each topic is referenced by findings via researchRefs field
+// ============================================================================
+
+const RESEARCH_DATA = [
+  {
+    id: 'demographics',
+    title: 'Visitor Demographics & Booking Behavior',
+    insights: [
+      { stat: '49', label: 'Median RV owner age', text: 'The RV traveler audience is broader and younger than commonly assumed — not exclusively retirees.' },
+      { stat: '22%', label: '18-34 year-old RV owners', text: 'Up from 8.5% in 2018 — a significant generational shift in the RV market.' },
+      { stat: '43%', label: 'Have children under 18', text: 'Families are a major segment, not a niche. Site content should speak to family travelers.' },
+      { stat: '185', label: 'Pages viewed before booking', text: 'The average traveler views 185 pages of travel content in the 45 days before booking.' },
+    ],
+    detail: 'The RV traveler audience spans retirees, families, and younger adventure seekers. Primary motivations are relaxation (58%), time in nature (57%), and visiting beautiful locations (53%). The emotional hook for these sites should be escape and nature — not feature spec sheets. First-time campers account for 1 in 3 reservations, meaning many visitors have no prior relationship with the park and must be won entirely from the website.',
+    sources: [
+      { title: 'CamperFAQs — RV Statistics, Trends & Facts 2024', url: 'https://camperfaqs.com/rv-statistics-trends-facts' },
+      { title: 'RVshare — 2024 RV Travel Trend Report', url: 'https://rvshare.com/blog/rv-travel-trends-2024/' },
+      { title: 'Expedia Group — Traveler Path to Purchase', url: 'https://partner.expediagroup.com/en-us/resources/blog/traveler-path-to-purchase-amer-insights' },
+    ],
+  },
+  {
+    id: 'homepage-cta',
+    title: 'Homepage & CTA Best Practices',
+    insights: [
+      { stat: '<1s', label: 'Time to form opinion', text: 'Users form an opinion about a website in under one second. Visual impression and load speed are conversion factors before content registers.' },
+      { stat: '28%', label: 'Bounce rate drop', text: 'The Zetter Hotel saw a 28% drop in bounce rate after placing a booking widget and "Book Direct" offer above the fold.' },
+      { stat: '3', label: 'Clicks to booking', text: 'Guests need to find rates, amenities, and booking options in under 3 clicks for optimal conversion.' },
+    ],
+    detail: 'The highest-converting campground homepages follow an above-the-fold formula: compelling site-specific hero image (not stock), short emotion-led headline, direct booking CTA visible without scrolling, and optionally an inline date picker. CTAs must appear at multiple points in the scroll journey — not just the header. Best-performing CTA text: "Book Now," "Check Availability," "Reserve Your Site." Generic CTAs like "Learn More" dramatically underperform. A sticky header CTA (always visible on scroll) significantly reduces friction.',
+    sources: [
+      { title: 'Campspot — Design Best Practices for High-Converting Campground Websites', url: 'https://support.campspot.com/design-best-practices-for-a-high-converting-campground-website' },
+      { title: 'Spilt Milk — Conversion Rate Optimization for Boutique Hotels 2025', url: 'https://spiltmilkwebdesign.com/conversion-rate-optimization-website-ux-for-boutique-hotels-in-2025/' },
+      { title: 'Five Star Content — Hotel Booking Funnel Conversion Guide', url: 'https://www.fivestarcontent.co/blog/improve-hotel-website-conversion-rate' },
+    ],
+  },
+  {
+    id: 'conversion-barriers',
+    title: 'Conversion Barriers in Hospitality',
+    insights: [
+      { stat: '55%', label: 'Abandon over hidden fees', text: 'Unexpected fees and unclear pricing are the #1 reason travelers abandon a booking.' },
+      { stat: '26%', label: 'Abandon over complex checkout', text: 'Lengthy checkout processes with too much information requested upfront drive abandonment.' },
+      { stat: '19%', label: 'Abandon over forced registration', text: 'Requiring account creation before booking is a disproportionate barrier for older demographics.' },
+      { stat: '85%', label: 'Mobile abandonment rate', text: 'Mobile abandonment rates in travel reach ~85% when the mobile experience is poor.' },
+    ],
+    detail: 'When clicking "Book Now" sends visitors to an entirely different domain (like Campspot), abandonment rates spike. The visual and contextual break disrupts confidence. Seamless integration — or at minimum clear branding continuity on the booking platform — is essential. Other key barriers: outdated visuals signaling unreliability, missing contact information, no visible reviews, and poor mobile form design with small tap targets.',
+    sources: [
+      { title: 'Campground Consulting Group — Why Your Website Matters More Than Ever', url: 'https://campgroundconsultinggroup.com/why-your-campgrounds-website-is-more-important-than-ever-and-how-to-get-it-right/' },
+      { title: 'Basecamp — Why 70% of Guests Leave If Your Website Isn\'t Mobile-Friendly', url: 'https://meetatbasecamp.com/why-70-of-guests-leave-if-your-website-isnt-mobile-friendly/' },
+      { title: 'OHI — Top 10 Factors Influencing Campground Bookings 2024', url: 'https://ohi.org/ohi-blog/top-10-factors-influencing-campground-bookings-in-2024/' },
+    ],
+  },
+  {
+    id: 'trust-signals',
+    title: 'Trust Signals for RV Travelers',
+    insights: [
+      { stat: '#1', label: 'Google reviews = most trusted', text: 'Google reviews are the most trusted source. Embedding a live feed with star ratings is significantly more credible than handpicked testimonials.' },
+      { stat: '78%', label: 'Decide from photos alone', text: 'The majority of travelers make their accommodation decision based on photos alone.' },
+      { stat: '62%', label: 'Trust guest photos most', text: 'Real guest photos are more influential than professional photography for accommodation trust signals.' },
+    ],
+    detail: 'The highest-impact trust signals for RV travelers in priority order: recent Google reviews (stars + count visible), photos of actual campsites (not just landscapes), specific hookup/utility information, visible phone number in header, clear cancellation policy, third-party certifications (Good Sam, AAA, ARVC), and user-generated content. The outdoor hospitality industry is especially susceptible to external reviews because camping is experience-based and easily comparable online.',
+    sources: [
+      { title: 'OHI — Top 10 Factors Influencing Campground Bookings 2024', url: 'https://ohi.org/ohi-blog/top-10-factors-influencing-campground-bookings-in-2024/' },
+      { title: 'Good Sam / Campground Solutions — Better Photos = More Reservations', url: 'https://campgroundsolutions.goodsam.com/blog/better-photos/' },
+      { title: 'Campspot — 5 Campground Photography Questions Answered', url: 'https://software.campspot.com/blog/5-common-photography-questions-for-campgrounds/' },
+    ],
+  },
+  {
+    id: 'mobile-booking',
+    title: 'Mobile Booking Patterns',
+    insights: [
+      { stat: '60%+', label: 'Bookings on mobile', text: 'Over 60% of campground bookings now happen on mobile devices.' },
+      { stat: '32%', label: 'Booking increase from mobile redesign', text: 'One documented case study showed a mobile-first redesign produced a 32% increase in organic bookings within 3 months.' },
+      { stat: '3s', label: 'Max load time on cellular', text: 'Pages must load under 3 seconds on cellular connections — not just WiFi — or visitors abandon.' },
+      { stat: '44px', label: 'Minimum tap target size', text: 'Apple HIG standard for touch targets. Campground sites frequently fail this for booking buttons.' },
+    ],
+    detail: 'RV travelers are a uniquely mobile audience. Unlike hotel guests who typically book weeks in advance from a desktop, RV travelers frequently book same-day or 1-3 days ahead while on the road — on a phone with a cell connection, often with one hand free. Non-negotiable baseline: page load under 3s on cellular, tap targets 44x44px minimum, phone number as tappable tel: link, address linking to maps app, "Book Now" visible without scrolling on a 375px screen. Date pickers must use native mobile date input, not desktop calendar widgets.',
+    sources: [
+      { title: 'Basecamp — Why 70% of Guests Leave If Your Website Isn\'t Mobile-Friendly', url: 'https://meetatbasecamp.com/why-70-of-guests-leave-if-your-website-isnt-mobile-friendly/' },
+      { title: 'Indio — Essential RV Park Website Design Features', url: 'https://www.getindio.com/website-features-for-rv-parks/' },
+      { title: 'Florida RV Park Association — Digital Marketing Strategies for RV Parks', url: 'https://campflorida.org/navigating-the-digital-landscape-online-marketing-strategies-for-rv-parks/' },
+    ],
+  },
+  {
+    id: 'seasonal-urgency',
+    title: 'Seasonal & Urgency Messaging',
+    insights: [
+      { stat: '4x', label: 'Harder to book than 2019', text: 'Campsite demand has surged — it\'s now 4x more difficult to book than pre-pandemic. Scarcity is real, not manufactured.' },
+      { stat: '15%', label: 'Early bird discount impact', text: '"Book before [date] for 15% off summer rates" encourages advance planning and fills shoulder seasons.' },
+    ],
+    detail: 'Effective urgency patterns: inventory-specific availability ("Only 3 sites left for Memorial Day"), real-time availability calendars showing taken dates, social proof signals ("X people viewed this park today"), and early bird discounts with deadlines. What NOT to do: manufactured scarcity (RV travelers share bad experiences widely), countdown timers that reset on reload (recognized as fake), aggressive popups. Parks should change hero content by season: off-season ("Plan Your Summer Now"), peak approach ("Summer Weekends Filling Fast"), peak ("Check Dates" with calendar), post-season ("Join the Waitlist").',
+    sources: [
+      { title: 'WP Booking System — Using Scarcity and Urgency to Drive Bookings', url: 'https://www.wpbookingsystem.com/blog/how-to-use-scarcity-and-urgency-to-drive-more-bookings/' },
+      { title: 'Formula — Drive Direct Bookings with Scarcity Tactics', url: 'https://thisisformula.com/3-ways-hotels-can-use-scarcity-and-urgency-tactics-to-drive-direct-revenue-growth/' },
+      { title: 'RoverPass — Annual Report: Key Outdoor Hospitality Insights 2025', url: 'https://www.roverpass.com/blog/the-roverpass-annual-report-exclusive-data-shaping-camping-rving-and-glamping/' },
+    ],
+  },
+  {
+    id: 'photo-content',
+    title: 'Photo & Visual Content',
+    insights: [
+      { stat: '78%', label: 'Decide from photos', text: 'The vast majority of travelers make their accommodation decision based on photos alone.' },
+      { stat: '94%', label: 'More views with quality photos', text: 'Sites with relevant, quality photos receive 94% more views than those without.' },
+      { stat: '2x', label: 'Reservations with great photos', text: 'Quality photography can potentially double yearly reservations for a campground.' },
+      { stat: '51%', label: 'Respond to images of people', text: 'Customers respond better to images showing actual people enjoying facilities vs. empty spaces.' },
+    ],
+    detail: 'What to photograph (priority order): individual RV sites showing actual pad surface, hookup placement, spacing, shade, and leveling — this is the most decision-critical visual for RV travelers and most commonly missing. Then: people enjoying the park, amenities in use (not empty), park entry/landmark shots, aerial/drone overview, and golden-hour shots. User-generated content outperforms brand photography for trust. Technical: images large enough to be immersive on desktop but optimized (WebP, responsive sizing) for mobile load time.',
+    sources: [
+      { title: 'Good Sam / Campground Solutions — Better Photos = More Reservations', url: 'https://campgroundsolutions.goodsam.com/blog/better-photos/' },
+      { title: 'Campspot — 5 Campground Photography Questions Answered', url: 'https://software.campspot.com/blog/5-common-photography-questions-for-campgrounds/' },
+      { title: 'Knapsack Creative — Campground SEO Guide 2025', url: 'https://knapsackcreative.com/blog-industry/rv-park-seo-strategies' },
+    ],
+  },
+  {
+    id: 'pricing-transparency',
+    title: 'Pricing Transparency & Rate Display',
+    insights: [
+      { stat: '55%', label: 'Abandon over hidden costs', text: 'Unexpected fees at checkout are the single largest reason for booking abandonment in hospitality.' },
+      { stat: '#1', label: 'Comparison shopping behavior', text: 'RVers are budget-conscious and compare rates across 3-5 parks simultaneously. Opaque pricing = instant bounce.' },
+    ],
+    detail: 'What to display: rate by site type (full hookup, partial, pull-through, back-in), amp service (30 vs. 50 with price differential), nightly/weekly/monthly rates, what\'s included (water, sewer, electric, WiFi), seasonal rate changes with dates, and discounts (Good Sam, AAA, military, senior, extended stay). Anchor pricing technique: show standard rate alongside discounted rate. "Call for rates" is a conversion killer — adds a step, signals overpricing, and isn\'t accessible to mobile travelers. Surprise fees at checkout are the #1 abandonment cause.',
+    sources: [
+      { title: 'CRR Hospitality — Dynamic Pricing Strategies for RV Parks', url: 'https://crrhospitality.com/blog/maximizing-profit-with-dynamic-pricing-strategies-for-rv-parks/' },
+      { title: 'OHI — Top 10 Factors Influencing Campground Bookings 2024', url: 'https://ohi.org/ohi-blog/top-10-factors-influencing-campground-bookings-in-2024/' },
+      { title: 'Campspot — Design Best Practices for High-Converting Campground Websites', url: 'https://support.campspot.com/design-best-practices-for-a-high-converting-campground-website' },
+    ],
+  },
+  {
+    id: 'local-area-content',
+    title: 'Local Area Content Strategy',
+    insights: [
+      { stat: '3x', label: 'Purpose for local content', text: 'Local content serves decision-making (is there enough to do?), SEO capture (high-intent search traffic), and differentiation (the one thing that makes each park unique).' },
+    ],
+    detail: 'A dedicated "Things to Do Near [Park Name]" page — organized by activity type with distances and drive times — captures high-intent search traffic from travelers who have chosen a destination but not a park. This is the primary way parks sharing the same template can differentiate: the park itself may look identical to competitors, but its geographic context is unique. Seasonal content ("What to do near us in fall") targets off-season booking traffic. Cross-promotion partnerships with local attractions create exclusivity signals.',
+    sources: [
+      { title: 'Knapsack Creative — Campground SEO Guide 2025', url: 'https://knapsackcreative.com/blog-industry/rv-park-seo-strategies' },
+      { title: 'Martrek Digital — Top 5 Digital Marketing Strategies for Campgrounds 2025', url: 'https://www.martrekdigital.com/top-5-digital-marketing-strategies-for-campgrounds-in-2025/' },
+      { title: 'Florida RV Park Association — Digital Marketing Strategies', url: 'https://campflorida.org/navigating-the-digital-landscape-online-marketing-strategies-for-rv-parks/' },
+    ],
+  },
+  {
+    id: 'older-demographics',
+    title: 'Accessibility for Older Demographics',
+    insights: [
+      { stat: '16px', label: 'Minimum body text size', text: '16px minimum (18px preferred). Never use text below 14px for any functional content.' },
+      { stat: '4.5:1', label: 'WCAG AA contrast ratio', text: 'Minimum contrast for normal text. Gray-on-white — pervasive in WordPress templates — commonly fails this.' },
+      { stat: '44px', label: 'Min tap/click target', text: 'Older users have reduced motor precision. 44x44px minimum for all interactive elements.' },
+    ],
+    detail: 'A significant portion of the RV audience is 50+. Key requirements: body text 16px+ with 1.5x line height, 60-80 character line length, no ultra-light font weights, WCAG AA contrast everywhere (especially text over photos which almost always fails without a dark overlay). Interaction design: avoid hover-dependent content (mobile/older users don\'t hover), large form inputs with clear labels, standard menu placement. Cognitive load: fewer choices, predictable layouts, specific error messages. Critically, most accessibility improvements for older users are the same as general conversion optimizations.',
+    sources: [
+      { title: 'WebAIM — Contrast and Color Accessibility', url: 'https://webaim.org/articles/contrast/' },
+      { title: 'WCAG 2.1 — Contrast Minimum (W3C)', url: 'https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html' },
+      { title: 'Inclusive Web — Accessible Typography Font Guidelines', url: 'https://www.inclusiveweb.co/accessibility-resources/accessible-typography-font-guidelines-for-ui-designers' },
+    ],
   },
 ]
 
@@ -681,7 +988,7 @@ function StatusBadge({ status }) {
 // FINDINGS LIST VIEW
 // ============================================================================
 
-function FindingRow({ finding, isExpanded, onToggle }) {
+function FindingRow({ finding, isExpanded, onToggle, onNavigate }) {
   const score = getPriorityScore(finding)
   const scoreColor = getPriorityColor(score)
   const isTemplate = isTemplateWide(finding)
@@ -763,6 +1070,34 @@ function FindingRow({ finding, isExpanded, onToggle }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
+              </div>
+            )}
+
+            {/* Research references */}
+            {finding.researchRefs && finding.researchRefs.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Supporting Research</h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {finding.researchRefs.map((refId) => {
+                    const topic = RESEARCH_DATA.find((r) => r.id === refId)
+                    if (!topic) return null
+                    return (
+                      <button
+                        key={refId}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          if (onNavigate) onNavigate('research', refId)
+                        }}
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-colors"
+                      >
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        {topic.title}
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
             )}
 
@@ -1012,6 +1347,7 @@ function FindingsListView({ filters, setFilters, sortConfig, setSortConfig, onNa
               finding={finding}
               isExpanded={expandedId === finding.id}
               onToggle={() => setExpandedId(expandedId === finding.id ? null : finding.id)}
+              onNavigate={onNavigate}
             />
           ))
         )}
@@ -1130,13 +1466,13 @@ function DashboardView({ onNavigate, setFilters }) {
           <div className="text-xs text-blue-600 mt-1">View all findings &rarr;</div>
         </div>
 
-        {/* Validation status */}
-        <div className="rounded-lg border border-gray-200 bg-white p-4 md:p-6">
-          <div className="text-sm font-medium text-gray-500 mb-1">Validated</div>
-          <div className="text-3xl md:text-4xl font-bold font-mono text-green-600">{confirmedCount + partialCount + changedCount}</div>
-          <div className="text-xs text-gray-500 mt-1">
-            {confirmedCount} confirmed, {partialCount + changedCount} partial/changed, {unvalidatedCount} pending
-          </div>
+        {/* Research callout */}
+        <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-4 md:p-6 cursor-pointer hover:bg-indigo-100 transition-colors"
+          onClick={() => onNavigate('research')}
+        >
+          <div className="text-sm font-medium text-gray-500 mb-1">Research</div>
+          <div className="text-3xl md:text-4xl font-bold font-mono text-indigo-600">{RESEARCH_DATA.length}</div>
+          <div className="text-xs text-indigo-600 mt-1">{FINDINGS.filter((f) => f.researchRefs && f.researchRefs.length > 0).length} findings backed by research &rarr;</div>
         </div>
 
         {/* Quick Wins */}
@@ -1261,16 +1597,213 @@ function DashboardView({ onNavigate, setFilters }) {
 }
 
 // ============================================================================
+// RESEARCH VIEW
+// ============================================================================
+
+const HERO_STATS = [
+  { stat: '60%+', label: 'Bookings on mobile', color: 'text-blue-600' },
+  { stat: '78%', label: 'Decide from photos alone', color: 'text-amber-600' },
+  { stat: '55%', label: 'Abandon over hidden fees', color: 'text-red-600' },
+  { stat: '4x', label: 'Harder to book than 2019', color: 'text-emerald-600' },
+]
+
+function ResearchTopicCard({ topic, isExpanded, onToggle }) {
+  return (
+    <div id={`research-${topic.id}`} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+      <button
+        className="w-full text-left px-5 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors"
+        onClick={onToggle}
+      >
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base font-semibold text-gray-900">{topic.title}</h3>
+          <div className="flex flex-wrap gap-3 mt-2">
+            {topic.insights.slice(0, 3).map((insight, i) => (
+              <div key={i} className="flex items-baseline gap-1.5">
+                <span className="text-lg font-bold text-blue-600">{insight.stat}</span>
+                <span className="text-xs text-gray-500">{insight.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <svg className={`w-5 h-5 text-gray-400 mt-1 flex-shrink-0 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isExpanded && (
+        <div className="px-5 pb-5 border-t border-gray-100">
+          {/* All stat callouts */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 py-4">
+            {topic.insights.map((insight, i) => (
+              <div key={i} className="bg-gray-50 rounded-lg p-3 text-center">
+                <div className="text-2xl font-bold text-blue-600">{insight.stat}</div>
+                <div className="text-xs text-gray-500 mt-0.5">{insight.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Key insights list */}
+          <div className="mb-4">
+            <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Key Insights</h4>
+            <ul className="space-y-2">
+              {topic.insights.map((insight, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                  <svg className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  {insight.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Detail paragraph */}
+          <div className="mb-4">
+            <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Summary</h4>
+            <p className="text-sm text-gray-600 leading-relaxed">{topic.detail}</p>
+          </div>
+
+          {/* Related findings */}
+          {(() => {
+            const related = FINDINGS.filter((f) => f.researchRefs && f.researchRefs.includes(topic.id))
+            if (related.length === 0) return null
+            return (
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Related Findings</h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {related.map((f) => (
+                    <span key={f.id} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-700">
+                      #{f.id} {f.title.length > 50 ? f.title.slice(0, 50) + '...' : f.title}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
+
+          {/* Sources */}
+          <div>
+            <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sources</h4>
+            <ul className="space-y-1">
+              {topic.sources.map((source, i) => (
+                <li key={i}>
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+                  >
+                    {source.title}
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ResearchView({ scrollToTopic }) {
+  const [expandedTopics, setExpandedTopics] = useState(() => {
+    if (scrollToTopic) return new Set([scrollToTopic])
+    return new Set()
+  })
+
+  // Scroll to topic when navigated from a finding
+  const scrolledRef = { current: false }
+  if (scrollToTopic && !scrolledRef.current) {
+    scrolledRef.current = true
+    setTimeout(() => {
+      const el = document.getElementById(`research-${scrollToTopic}`)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setExpandedTopics((prev) => new Set([...prev, scrollToTopic]))
+      }
+    }, 100)
+  }
+
+  function toggleTopic(id) {
+    setExpandedTopics((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
+
+  const linkedFindings = FINDINGS.filter((f) => f.researchRefs && f.researchRefs.length > 0)
+
+  return (
+    <div>
+      {/* Header */}
+      <div className="mb-6">
+        <h2 className="text-xl font-bold text-gray-900">Conversion Research</h2>
+        <p className="text-sm text-gray-500 mt-1">
+          Industry research on RV park visitor behavior, booking patterns, and UX best practices.
+          {' '}{linkedFindings.length} findings reference this research.
+        </p>
+      </div>
+
+      {/* Hero stats bar */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        {HERO_STATS.map((s, i) => (
+          <div key={i} className="bg-white border border-gray-200 rounded-lg p-4 text-center">
+            <div className={`text-3xl font-bold ${s.color}`}>{s.stat}</div>
+            <div className="text-xs text-gray-500 mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Expand/Collapse all */}
+      <div className="flex justify-end mb-3">
+        <button
+          onClick={() => {
+            if (expandedTopics.size === RESEARCH_DATA.length) {
+              setExpandedTopics(new Set())
+            } else {
+              setExpandedTopics(new Set(RESEARCH_DATA.map((t) => t.id)))
+            }
+          }}
+          className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          {expandedTopics.size === RESEARCH_DATA.length ? 'Collapse all' : 'Expand all'}
+        </button>
+      </div>
+
+      {/* Topic cards */}
+      <div className="space-y-3">
+        {RESEARCH_DATA.map((topic) => (
+          <ResearchTopicCard
+            key={topic.id}
+            topic={topic}
+            isExpanded={expandedTopics.has(topic.id)}
+            onToggle={() => toggleTopic(topic.id)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+
+// ============================================================================
 // APP SHELL
 // ============================================================================
 
 const NAV_ITEMS = [
   { key: 'dashboard', label: 'Dashboard' },
   { key: 'findings', label: 'Findings' },
+  { key: 'research', label: 'Research' },
 ]
 
 export default function App() {
   const [activeView, setActiveView] = useState('dashboard')
+  const [researchScrollTarget, setResearchScrollTarget] = useState(null)
   const [filters, setFilters] = useState({
     scope: 'all',
     category: null,
@@ -1283,8 +1816,13 @@ export default function App() {
     direction: 'desc',
   })
 
-  function handleNavigate(view) {
+  function handleNavigate(view, scrollToTopic) {
     setActiveView(view)
+    if (view === 'research' && scrollToTopic) {
+      setResearchScrollTarget(scrollToTopic)
+    } else {
+      setResearchScrollTarget(null)
+    }
   }
 
   return (
@@ -1327,6 +1865,9 @@ export default function App() {
             setSortConfig={setSortConfig}
             onNavigate={handleNavigate}
           />
+        )}
+        {activeView === 'research' && (
+          <ResearchView scrollToTopic={researchScrollTarget} />
         )}
       </main>
     </div>
