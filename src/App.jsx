@@ -1466,15 +1466,6 @@ function DashboardView({ onNavigate, setFilters }) {
           <div className="text-xs text-blue-600 mt-1">View all findings &rarr;</div>
         </div>
 
-        {/* Research callout */}
-        <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-4 md:p-6 cursor-pointer hover:bg-indigo-100 transition-colors"
-          onClick={() => onNavigate('research')}
-        >
-          <div className="text-sm font-medium text-gray-500 mb-1">Research</div>
-          <div className="text-3xl md:text-4xl font-bold font-mono text-indigo-600">{RESEARCH_DATA.length}</div>
-          <div className="text-xs text-indigo-600 mt-1">{FINDINGS.filter((f) => f.researchRefs && f.researchRefs.length > 0).length} findings backed by research &rarr;</div>
-        </div>
-
         {/* Quick Wins */}
         <div className="rounded-lg border border-green-200 bg-green-50 p-4 md:p-6 cursor-pointer hover:bg-green-100 transition-colors"
           onClick={() => {
@@ -1485,6 +1476,15 @@ function DashboardView({ onNavigate, setFilters }) {
           <div className="text-sm font-medium text-gray-500 mb-1">Quick Wins</div>
           <div className="text-3xl md:text-4xl font-bold font-mono text-green-600">{quickWins.length}</div>
           <div className="text-xs text-green-600 mt-1">High impact + low effort &rarr;</div>
+        </div>
+
+        {/* Research callout */}
+        <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-4 md:p-6 cursor-pointer hover:bg-indigo-100 transition-colors"
+          onClick={() => onNavigate('research')}
+        >
+          <div className="text-sm font-medium text-gray-500 mb-1">Research</div>
+          <div className="text-3xl md:text-4xl font-bold font-mono text-indigo-600">{RESEARCH_DATA.length}</div>
+          <div className="text-xs text-indigo-600 mt-1">{FINDINGS.filter((f) => f.researchRefs && f.researchRefs.length > 0).length} findings backed by research &rarr;</div>
         </div>
 
       </div>
