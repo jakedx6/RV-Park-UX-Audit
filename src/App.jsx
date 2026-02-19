@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 
 // ============================================================================
 // CONSTANTS
@@ -1006,6 +1006,15 @@ function FindingRow({ finding, isExpanded, onToggle, onNavigate }) {
             {finding.type === 'opportunity' && (
               <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-700">Opportunity</span>
             )}
+            {finding.evidence && finding.evidence.length > 0 && (
+              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-500" title={`${finding.evidence.length} screenshot${finding.evidence.length > 1 ? 's' : ''}`}>
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {finding.evidence.length}
+              </span>
+            )}
           </div>
         </div>
 
@@ -1705,17 +1714,19 @@ function ResearchView({ scrollToTopic }) {
   })
 
   // Scroll to topic when navigated from a finding
-  const scrolledRef = { current: false }
-  if (scrollToTopic && !scrolledRef.current) {
-    scrolledRef.current = true
-    setTimeout(() => {
-      const el = document.getElementById(`research-${scrollToTopic}`)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        setExpandedTopics((prev) => new Set([...prev, scrollToTopic]))
-      }
-    }, 100)
-  }
+  const scrolledRef = useRef(null)
+  useEffect(() => {
+    if (scrollToTopic && scrolledRef.current !== scrollToTopic) {
+      scrolledRef.current = scrollToTopic
+      setExpandedTopics((prev) => new Set([...prev, scrollToTopic]))
+      setTimeout(() => {
+        const el = document.getElementById(`research-${scrollToTopic}`)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
+    }
+  }, [scrollToTopic])
 
   function toggleTopic(id) {
     setExpandedTopics((prev) => {
